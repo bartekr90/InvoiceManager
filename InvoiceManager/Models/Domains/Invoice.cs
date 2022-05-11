@@ -13,16 +13,20 @@ namespace InvoiceManager.Models.Domains
             InvoicePosition = new Collection<InvoicePosition>();
         }
         public int Id { get; set; }
-        [Required]
+
+        [Required(ErrorMessage ="Pole tytuł jest wymagane!")]
         [Display(Name = "Tytuł:")]
         public string Title { get; set; }
 
+        [Required(ErrorMessage ="Pole wartość jest wymagane!")]
         [Display(Name = "Wartość:")]
         public decimal Value { get; set; }
 
+        [Required(ErrorMessage = "Pole metoda płatności jest wymagane!")]
         [Display(Name = "Metoda płatności:")]
         public int MethodOfPaymentId { get; set; }
 
+        [Required(ErrorMessage ="Pole data płatności jest wymagane!")]
         [Display(Name = "Data płatności:")]
         public DateTime PaymentDate { get; set; }
 
@@ -36,6 +40,7 @@ namespace InvoiceManager.Models.Domains
         [ForeignKey("User")]
         public string UserId { get; set; }
 
+        [Required(ErrorMessage ="Pole Klient jest wymagane!")]
         [Display(Name = "Klient:")]
         public int ClientId { get; set; }
 
