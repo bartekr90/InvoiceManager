@@ -90,6 +90,7 @@ namespace InvoiceManager.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Invoice(Invoice invoice)
         {
             var userId = User.Identity.GetUserId();
@@ -110,6 +111,7 @@ namespace InvoiceManager.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult InvoicePosition(InvoicePosition invoicePosition)
         {
             var userId = User.Identity.GetUserId();
